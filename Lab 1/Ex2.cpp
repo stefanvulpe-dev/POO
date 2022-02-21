@@ -1,5 +1,6 @@
 #include <cstdio> 
 #include <cstring> 
+
 #define _CRT_SECURE_NO_WARNINGS
 
 FILE * fptr; 
