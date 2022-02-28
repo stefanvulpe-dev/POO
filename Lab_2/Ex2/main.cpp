@@ -29,7 +29,8 @@ int main()
 
     printf("Students average grades: \n"); 
 
-    printf("Student1: %.2f\nStudent2: %.2f\nStudent3: %.2f\nStudent4: %.2f\n", student1.averageGrade(), student2.averageGrade(), student3.averageGrade(), student4.averageGrade()); 
+    printf("%s: %d\n", student1.getName(), student1.averageGrade()); 
+    
 
     return 0;
 }
