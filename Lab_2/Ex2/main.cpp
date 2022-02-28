@@ -29,8 +29,23 @@ int main()
 
     printf("Students average grades: \n"); 
 
-    printf("%s: %d\n", student1.getName(), student1.averageGrade()); 
-    
+    printf("%s: %.2f\n", student1.getName(), student1.averageGrade()); 
+    printf("%s: %.2f\n", student2.getName(), student2.averageGrade()); 
+    printf("%s: %.2f\n", student3.getName(), student3.averageGrade()); 
+    printf("%s: %.2f\n", student4.getName(), student4.averageGrade()); 
+
+    if(compareTo_AverageGrade(&student1, &student4) == 1)
+    {
+        printf("%s has a greater average grade than %s\n", student1.getName(), student4.getName());
+    }
+    else if(compareTo_AverageGrade(&student1, &student4) == -1)
+    {
+        printf("%s has a smaller average grade than %s\n", student1.getName(), student4.getName());
+    }
+    else 
+    {
+        printf("%s and %s have the same average grade\n", student1.getName(), student4.getName());
+    }
 
     return 0;
 }
