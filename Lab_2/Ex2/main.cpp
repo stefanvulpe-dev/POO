@@ -4,6 +4,8 @@
 #include "includes/Student.h"
 #include "includes/GlobalFunctions.h"
 
+#define _CRT_SECURE_NO_WARNINGS
+
 int main()
 {
     Student student1 = Student("Yahya Curtis", 5.5);
