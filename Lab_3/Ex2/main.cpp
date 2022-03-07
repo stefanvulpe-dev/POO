@@ -18,6 +18,8 @@ int main()
 
     c.DrawLine(15, 15, 25, 25, '~');
 
+    c.DrawLine(15, 0, 20, 10, '%');
+
     c.SetPoint(12, 12, '&');
 
     c.Print();
