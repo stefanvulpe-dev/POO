@@ -1,5 +1,8 @@
 #include <cstdlib>
-#include <cmath> 
+#include <cmath>
+#include <cstdio>
+#include <cstring> 
+
 #include "Canvas.h"
 
 Canvas::Canvas(int width, int height)
@@ -26,7 +29,7 @@ void Canvas::DrawCircle(int x, int y, int ray, char ch)
                 this -> canvas[i][j] = ch;
             }
             else 
-                this -> canvas[i][j] = ' ';
+                this -> canvas[i][j] = '_';
         }
     }
 }
@@ -42,49 +45,43 @@ void Canvas::FillCircle(int x, int y, int ray, char ch)
                 this -> canvas[i][j] = ch;
             }
             else 
-                this -> canvas[i][j] = ' ';
+                this -> canvas[i][j] = '_';
         }
     }
 }
 
 void Canvas::DrawRect(int left, int top, int right, int bottom, char ch)
 {
-    for(int i = 0; i < this -> height; ++ i)
+    for(int i = top; i <= bottom; ++ i)
     {
-        for(int j = 0; j < this -> width; ++ j)
+        for(int j = left; j <= right; ++ j)
         {
-            if((i == top || i == bottom) || (j == left || j == right))
+            if(((i > top && i < bottom) && (j == left || j == right)) || ((i == top || i == bottom) && (j >= left && j <= right)))
             {
                 this -> canvas[i][j] = ch;
             }
-            else 
-                this -> canvas[i][j] = ' ';
-        }
-}
-
-void Canvas::FillRect(int left, int top, int right, int bottom, char ch)
-{
-    for(int i = 0; i < this -> height; ++ i)
-    {
-        for(int j = 0; j < this -> width; ++ j)
-        {
-            if((i > top && i < bottom) && (j > left && j < right))
-            {
-                this -> canvas[i][j] = ch;
-            }
-            else 
-                this -> canvas[i][j] = ' ';
         }
     }
 }
 
-void SetPoint(int x, int y, char ch)
+void Canvas::FillRect(int left, int top, int right, int bottom, char ch)
 {
-    if((x >= 0 && x < this -> width) && (y >= 0 && y < this -> height))
-        this -> canvas[i][j] = ch;
+    for(int i = top + 1; i < bottom; ++ i)
+    {
+        for(int j = left + 1; j < right; ++ j)
+        {
+            this -> canvas[i][j] = ch;
+        }
+    }
 }
 
-void DrawLine(int x1, int y1, int x2, int y2, char ch)
+void Canvas::SetPoint(int x, int y, char ch)
+{
+    if((x >= 0 && x < this -> width) && (y >= 0 && y < this -> height))
+        this -> canvas[x][y] = ch;
+}
+
+void Canvas::DrawLine(int x1, int y1, int x2, int y2, char ch)
 {
     int dx, dy, D, y;
     
@@ -93,7 +90,7 @@ void DrawLine(int x1, int y1, int x2, int y2, char ch)
     D = 2 * dy - dx; 
     y = y1;
 
-    for(x = x1; x <= x2; ++ x)
+    for(int x = x1; x <= x2; ++ x)
     {
         this -> canvas[x][y] = ch; 
         if(D > 0)
@@ -105,6 +102,26 @@ void DrawLine(int x1, int y1, int x2, int y2, char ch)
     }
 }
 
-void Print(); // shows what was printed
-void Clear(); // clears the canvas
+void Canvas::Print()
+{
+    for(int i = 0; i < this -> height; ++ i)
+    {
+        for(int j = 0; j < this -> width; ++ j)
+        {
+            printf("%c", this ->canvas[i][j]); 
+        }
+        printf("\n");
+    }
+}
+
+void Canvas::Clear()
+{
+    for(int i = 0; i < this -> height; ++ i)
+    {
+        for(int j = 0; j < this -> width; ++ j)
+        { 
+            this -> canvas[i][j] = '_';
+        }
+    }
+}
 
