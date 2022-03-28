@@ -6,7 +6,8 @@
 class Circuit
 {
 private:
-    int length, nrOfParticipants;
+    int length, nrOfParticipants, winners;
+    double* results;
     Weather weather;
     Car** cars;
 public:
@@ -16,7 +17,9 @@ public:
 
     Circuit() : Circuit(0, 0, Weather::Rain)
     {
+        this->winners = 0;
         this->cars = (Car**)(malloc(MAX_NR_OF_PARTICIPANTS * sizeof(Car*)));
+        this->results = (double*)(malloc(MAX_NR_OF_PARTICIPANTS * sizeof(double)));
     }
 
     ~Circuit();
