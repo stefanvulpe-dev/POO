@@ -1,9 +1,8 @@
 #include "Dacia.h"
 
-
 Dacia::~Dacia()
 {
-    delete this -> name;
+    delete this->name;
 }
 
 // bool Dacia::canFinish(int length)

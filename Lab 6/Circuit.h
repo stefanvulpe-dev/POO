@@ -1,11 +1,12 @@
+#pragma once
 #include <cstdlib>
 #include "Weather.h"
-#include "Cars/Car.h"
+#include "Car.h"
 
 class Circuit
 {
-private: 
-    int length, nrOfParticipants; 
+private:
+    int length, nrOfParticipants;
     Weather weather;
     Car** cars;
 public:
@@ -13,22 +14,22 @@ public:
 
     Circuit(int length, int nrOfParticipants, Weather weather);
 
-    Circuit() : Circuit(0, 0, Weather::Rain) 
+    Circuit() : Circuit(0, 0, Weather::Rain)
     {
-        this -> cars = (Car**)(malloc(MAX_NR_OF_PARTICIPANTS * sizeof(Car*)));
+        this->cars = (Car**)(malloc(MAX_NR_OF_PARTICIPANTS * sizeof(Car*)));
     }
 
     ~Circuit();
 
-    void SetLength(int length); 
+    void SetLength(int length);
 
     void SetWeather(Weather weather);
 
     void AddCar(Car* car);
 
-    void Race(); 
+    void Race();
 
-    void ShowFinalRanks(); 
+    void ShowFinalRanks();
 
     void ShowWhoDidNotFinish();
 };
