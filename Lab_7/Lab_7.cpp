@@ -80,6 +80,8 @@ int main() {
 
     arrayOfCars.printArray();
 
+    arrayOfCars.deleteVector();
+
     return 0;
 
 }
