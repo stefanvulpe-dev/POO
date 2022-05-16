@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class MyException : public exception, public bad_alloc {
+class MyException : public exception{
 protected:
 	string m_name; 
 public: 
