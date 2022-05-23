@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class MyException : public exception{
+class MyException : public exception {
 protected:
 	string m_name; 
 public: 
